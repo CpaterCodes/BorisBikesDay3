@@ -1,7 +1,6 @@
 require "docking_station"
 
-RSpec.describe DockingStation.new do
-  describe 'releases bike' do
-    it { responds_to(release_bike) }
-  end
+describe DockingStation do
+  # describe 'releases bike' do
+    it { is_expected.to respond_to(:release_bike) }
 end
