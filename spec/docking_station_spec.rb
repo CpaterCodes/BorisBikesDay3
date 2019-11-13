@@ -19,7 +19,7 @@ describe 'DockingStation' do
   station_2 = DockingStation.new
   station_2.dock_bike(bike)
   it { expect(station.see).to eq false }
-  it { expect(station_2.see).to eq true }
+  it { expect(station_2.see).to eq nil }
 end
 
 describe 'DockingStation' do
@@ -28,8 +28,10 @@ describe 'DockingStation' do
   station_2 = DockingStation.new
   station_2.dock_bike(bike)
   bike_2 = Bike.new
+  station_3 = DockingStation.new
+  20.times { station_3.dock_bike(Bike.new) }
   it "raising error when trying to release bike from empty docking station" do
     expect { station.release_bike }.to raise_error("No bikes in docking station")
-    expect { station_2.dock_bike(bike_2)}.to raise_error("Bike already stored in station")
+    expect { station_3.dock_bike(bike_2)}.to raise_error("Docking station is full")
   end
 end

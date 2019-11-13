@@ -9,8 +9,8 @@ def see
   if @bike_stored.length == 0
     puts 'Empty :/'
     return false
-  else
-    puts 'Bike! :D'
+  elsif @bike_stored.length == 20
+    puts 'Full! :/'
     return true
   end
 end
@@ -18,15 +18,17 @@ end
   def release_bike
     if self.see == false
       raise("No bikes in docking station")
+    else
+      Bike.new
     end
-    Bike.new
   end
 
   def dock_bike(bike)
     if self.see == true
-      raise("Bike already stored in station")
+      raise("Docking station is full")
+    else
+      @bike_stored << bike
     end
-    @bike_stored << bike
   end
 
 end
