@@ -16,6 +16,9 @@ def see
 end
 
   def release_bike
+    if self.see == false
+      raise("No bikes in docking station")
+    end
     Bike.new
   end
 
