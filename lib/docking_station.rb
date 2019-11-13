@@ -23,6 +23,10 @@ end
   end
 
   def dock_bike(bike)
+    if self.see == true
+      raise("Bike already stored in station")
+    end
     @bike_stored << bike
   end
+
 end

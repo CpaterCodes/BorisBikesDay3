@@ -23,7 +23,13 @@ describe 'DockingStation' do
 end
 
 describe 'DockingStation' do
+  station = DockingStation.new
+  bike = Bike.new
+  station_2 = DockingStation.new
+  station_2.dock_bike(bike)
+  bike_2 = Bike.new
   it "raising error when trying to release bike from empty docking station" do
-    expect { DockingStation.new.release_bike }.to raise_error("No bikes in docking station")
+    expect { station.release_bike }.to raise_error("No bikes in docking station")
+    expect { station_2.dock_bike(bike_2)}.to raise_error("Bike already stored in station")
   end
 end
