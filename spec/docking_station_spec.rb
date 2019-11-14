@@ -15,7 +15,7 @@ describe DockingStation do
   it { expect(DockingStation.new(35).capacity).to eq (35)}
   it { expect(DockingStation.new.capacity).to eq(DockingStation::DEFAULT_CAPACITY) }
 
-  # testing '#release_bike'
+  # testing '#release_bike' with working bike
   it { expect(station).to respond_to(:release_bike) }
   it { expect(station.release_bike).to be_instance_of(Bike) }
   it { expect(station.release_bike.working?).to eq true }
