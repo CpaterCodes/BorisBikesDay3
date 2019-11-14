@@ -6,8 +6,8 @@ describe DockingStation do
     full_station = DockingStation.new
     empty_station = DockingStation.new
 
-    bike = Bike.new
-    bike_2 = Bike.new
+    bike = double(:bike)
+    bike_2 = double(:bike)
 
     station.dock_bike(bike)
     # creating full station:
@@ -29,8 +29,8 @@ describe DockingStation do
   it { expect(station.release_bike).to be_instance_of(Bike) }
 
   describe "when retrieving a bike" do
-    station.dock_bike(Bike.new)
-    station.dock_bike(Bike.new)
+    station.dock_bike(double(:bike))
+    station.dock_bike(double(:bike))
 
     puts station.bike_stored.length
     it { expect{
@@ -49,7 +49,7 @@ describe DockingStation do
   end
 
   it "should not release a broken bike" do
-    bike_3 = Bike.new
+    bike_3 = double(:bike)
     bike_3.break
 
     # no problem returning broken bikes:
