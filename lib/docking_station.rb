@@ -12,7 +12,7 @@ attr_reader :bike_stored, :capacity
     if self.empty?
       raise("No bikes in docking station")
     else
-      Bike.new
+      @bike_stored.any? { |bike| bike.working? } ? @bike_stored.pop : raise("No working bikes!")
     end
   end
 
