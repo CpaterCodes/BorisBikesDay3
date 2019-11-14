@@ -18,8 +18,6 @@ describe 'DockingStation' do
   bike = Bike.new
   station_2 = DockingStation.new
   station_2.dock_bike(bike)
-  it { expect(station.see).to eq false }
-  it { expect(station_2.see).to eq nil }
 end
 
 describe 'DockingStation' do
