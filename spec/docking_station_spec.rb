@@ -11,6 +11,10 @@ describe DockingStation do
 
   station.dock_bike(bike)
 
+  # Capacity method, with default
+  it { expect(DockingStation.new(35).capacity).to eq (35)}
+  it { expect(DockingStation.new.capacity).to eq(DockingStation::DEFAULT_CAPACITY) }
+
   # testing '#release_bike'
   it { expect(station).to respond_to(:release_bike) }
   it { expect(station.release_bike).to be_instance_of(Bike) }
@@ -24,6 +28,6 @@ describe DockingStation do
 
   it "raising error when trying to release bike from empty docking station" do
     expect { empty_station.release_bike }.to raise_error("No bikes in docking station")
-    expect { full_station.dock_bike(bike_2)}.to raise_error("Docking station is full")
+    expect { full_station.dock_bike(bike_2) }.to raise_error("Docking station is full")
   end
 end
